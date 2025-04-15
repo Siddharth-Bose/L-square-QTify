@@ -3,9 +3,11 @@ import axios from "axios";
 import Card from "../Card/Card";
 import styles from "./Section.module.css";
 
-function Section({ title = "Top Albums", apiEndpoint, val }) {
+function Section({ title = "Top Albums", apiEndpoint }) {
   const [albums, setAlbums] = useState([]);
-  const [isCollapsed, setIsCollapsed] = useState(val);
+  const [isCollapsed, setIsCollapsed] = useState(
+    title == "Top Albums" ? true : false
+  );
   const scrollRef = useRef(null);
 
   useEffect(() => {
