@@ -3,9 +3,9 @@ import axios from "axios";
 import Card from "../Card/Card";
 import styles from "./Section.module.css";
 
-function Section({ title = "Top Albums", apiEndpoint }) {
+function Section({ title = "Top Albums", apiEndpoint, val }) {
   const [albums, setAlbums] = useState([]);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(val);
   const scrollRef = useRef(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function Section({ title = "Top Albums", apiEndpoint }) {
           className={styles.collapseBtn}
           onClick={() => setIsCollapsed((prev) => !prev)}
         >
-          {isCollapsed ? "Show All" : "Collapse"}
+          {isCollapsed ? "Collapse" : "Show All"}
         </button>
       </div>
       <div className={styles.wrapper}>
