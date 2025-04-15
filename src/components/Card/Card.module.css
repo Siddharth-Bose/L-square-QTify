@@ -1,0 +1,38 @@
+.card {
+  height: 400px;
+  min-height: 400px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.albumBg {
+  background-image: var(--bg-img);
+  height: 85%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  /* padding-bottom: 10px; */
+}
+.albumName {
+  /* height: 100%; */
+  /* margin-top: auto; */
+  font-size: 14px;
+  color: #fff;
+}
+.cardAction {
+  background: #fff;
+  padding: 3%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.pill {
+  height: 4px;
+  width: 58px;
+  background: #000;
+}

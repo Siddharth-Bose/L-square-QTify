@@ -1,0 +1,39 @@
+.sectionContainer {
+  padding: 20px 0;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  color: #fff;
+}
+.wrapper{
+  padding:0 1%;
+}
+.collapseBtn {
+  background-color: transparent;
+  border: none;
+  color: #34c94b;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Scroll Wrapper for initial 7 cards */
+.albumScrollWrapper {
+  overflow-x: auto;
+}
+
+.albumGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 16px;
+}
+
+.albumGridExpanded {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(200px, 1fr));
+  gap: 16px;
+}
