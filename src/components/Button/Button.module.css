@@ -1,0 +1,10 @@
+.btn{
+    font-family: poppins;
+    padding:8px;
+    background: #000;
+    color: #34C94B;
+    border-radius: 8px;
+}
+.btn:hover{
+    cursor: pointer;
+}
