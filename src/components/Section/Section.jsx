@@ -5,9 +5,7 @@ import styles from "./Section.module.css";
 
 function Section({ title = "Top Albums", apiEndpoint }) {
   const [albums, setAlbums] = useState([]);
-  const [isCollapsed, setIsCollapsed] = useState(
-    title == "Top Albums" ? true : false
-  );
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const scrollRef = useRef(null);
 
   useEffect(() => {
