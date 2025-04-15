@@ -23,7 +23,7 @@ function Section({ title = "Top Albums", apiEndpoint }) {
           className={styles.collapseBtn}
           onClick={() => setIsCollapsed((prev) => !prev)}
         >
-          {isCollapsed ? "Show All" : "Collapse"}
+          {isCollapsed ? "Collapse" : "Show All"}
         </button>
       </div>
       <div className={styles.wrapper}>
