@@ -5,7 +5,7 @@ import styles from "./Section.module.css";
 
 function Section({ title = "Top Albums", apiEndpoint }) {
   const [albums, setAlbums] = useState([]);
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const scrollRef = useRef(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function Section({ title = "Top Albums", apiEndpoint }) {
           className={styles.collapseBtn}
           onClick={() => setIsCollapsed((prev) => !prev)}
         >
-          {isCollapsed ? "Collapse" : "Show All"}
+          {isCollapsed ? "Show All" : "Collapse"}
         </button>
       </div>
       <div className={styles.wrapper}>
