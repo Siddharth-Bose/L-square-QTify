@@ -1,14 +1,10 @@
 .navbar {
-    background-color: var(--color-primary);
-    height: 74px;
-    /* width: 100vw; */
-    padding: 0px 32px;
-    display: flex;
-    align-items: center;
-    background: #34C94B;
-    justify-content: space-between;
-  }
-/* .navBtn{
-  font-family: poppins;
-} */
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-primary);
+  width: 100vw;
+  height: 75px;
+  padding: 0px 32px;
+}

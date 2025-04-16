@@ -1,58 +1,54 @@
-import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react'
+import { CircularProgress } from '@mui/material';
 import Card from "../Card/Card";
-import styles from "./Section.module.css";
+import styles from "./Section.module.css"
+import Carousel from '../Carousel/Carousel';
 
-function Section({ title = "Top Albums", apiEndpoint }) {
-  const [albums, setAlbums] = useState([]);
-  const [isCollapsed, setIsCollapsed] = useState(
-    (title = "Top Albums" ? false : true)
-  );
-  const scrollRef = useRef(null);
 
-  useEffect(() => {
-    axios
-      .get(apiEndpoint)
-      .then((res) => setAlbums(res.data))
-      .catch((err) => console.error("Error fetching albums:", err));
-  }, [apiEndpoint]);
+const Section=({type,title,data,toggle=true})=> {
+
+    const[carouselToggle,setCarouselToggle]=useState(true);
+
+    const handleToggle=()=>{
+        setCarouselToggle(!carouselToggle);
+    }
 
   return (
-    <div className={styles.sectionContainer}>
-      <div className={styles.sectionHeader}>
-        <h2>{title}</h2>
-        <button
-          className={styles.collapseBtn}
-          onClick={() => setIsCollapsed((prev) => !prev)}
-        >
-          {isCollapsed ? "Collapse" : "Show All"}
-        </button>
-      </div>
-      <div className={styles.wrapper}>
-        {isCollapsed ? (
-          <div className={styles.albumGridExpanded}>
-            {albums.map((album) => (
-              <Card key={album.id} albumName={album.title} img={album.image} />
-            ))}
-          </div>
-        ) : (
-          <div className={styles.scrollWrapper}>
-            <div className={styles.albumScrollWrapper} ref={scrollRef}>
-              <div className={styles.albumGrid}>
-                {albums.slice(0, 7).map((album) => (
-                  <Card
-                    key={album.id}
-                    albumName={album.title}
-                    img={album.image}
-                  />
+    <div>
+        <div className={styles.sectionTop}>
+            <h3>{title}</h3>
+            <h4 onClick={handleToggle} className={styles.toggleText}>
+
+            {toggle?(
+                 carouselToggle?"Show All":"Collapse All"
+            ):(
+                <></>
+            )}
+            </h4>
+        </div>
+        
+        {data.length?(
+            <div className={styles.sectionInnerWrapper}>
+            {!carouselToggle?(
+                <div className={styles.showAllWrapper}>
+                {data.map((album)=>(
+                    <Card data={album} type={type} key={album.id}/>
                 ))}
-              </div>
+                </div>
+            ):(
+              <div>
+              <Carousel data={data} renderCardComponent={(data)=><Card data={data} type={type}/>}/>
+              </div>  
+            )}
             </div>
-          </div>
+        ):(
+            <div className={styles.progressBar}>
+            <CircularProgress />
+            </div>
         )}
-      </div>
+
     </div>
-  );
+  )
 }
 
 export default Section;

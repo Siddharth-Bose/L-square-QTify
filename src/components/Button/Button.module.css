@@ -1,11 +1,10 @@
-.btn{
-    font-family: Poppins;
-    padding:8px;
-    background: #000;
-    color: #34C94B;
-    border-radius: 8px;
+.button {
+    background-color: var(--color-black);
+    color: var(--color-primary);
+    border-radius: 12px;
     cursor: pointer;
-}
-.btn:hover{
-    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    padding: 10px 16px;
+    margin: 14px;
+
 }
